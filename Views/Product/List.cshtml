@@ -1,0 +1,100 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using SportWearManage.Models
+@{
+    List<Category> categories = ViewBag.Categories;
+}
+@model List<Product>
+<style>
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+        .styled-table thead tr {
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table body tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .styled-table body tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .styled-table body tr.active-row {
+                font-weight: bold;
+                color: #009879;
+            }
+
+    .main {
+        display: flex;
+    }
+
+    .active {
+        font-weight: 1000;
+        font-size: 20px;
+    }
+</style>
+
+<div class="main">
+    <div>
+        <h1>List of Categories</h1>
+        @foreach (var item in categories)
+        {
+            <div>
+                <a href="/Product/List/@item.CategoryId" @(ViewBag.id==item.CategoryId?"class=active":"")>@item.CategoryName</a>
+            </div>
+        }
+    </div>
+    <div>
+        @if (Model.Count > 0)
+        {
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Added Date</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Source Of Supply</th>
+                        <th>Category</th>
+                        <th>Added By</th>
+                    </tr>
+                </thead>
+                <body>
+                    @foreach (var m in Model)
+                    {
+                        <tr>
+                            <td>@m.ProductName</td>
+                            <td>@m.Quantity</td>
+                            <td>@m.Price</td>
+                            <td>@m.AddedDate.ToString("dd/MM/yyyy")</td>
+                            <td>
+                                <img style="height: 100px; width: 100px;" src="@m.Image" />
+                            </td>
+                            <td>@m.SourceOfSupply</td>
+                            <td>@m.Category.CategoryName</td>
+                            <td>@m.Account.Username</td>
+                        </tr>
+                    }
+                </body>
+            </table>
+        }
+        else
+        {
+            <h1>No product in Categories</h1>
+        }
+    </div>
+</div>
