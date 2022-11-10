@@ -50,8 +50,6 @@ namespace SportWearManage.Models
 
                 entity.Property(e => e.IsAdmin).HasColumnName("isAdmin");
 
-                entity.Property(e => e.IsSeller).HasColumnName("isSeller");
-
                 entity.Property(e => e.Password)
                     .HasMaxLength(50)
                     .IsUnicode(false);

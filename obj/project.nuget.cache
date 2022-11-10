@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ucr6zRgLWPV8/cnWWw/i9ndtLqfBwE7nCntoIlA0hP9S46zdQDTRci7aDFShZeHcZzc7uAWOaCC6/g8tRb33Qg==",
+  "dgSpecHash": "p3Nu5DpGWXD7JX3ufMGDG/S86EhVzRzh7K8ZsQ8GjObtNJu1u850eGwtBYrgscJdBYfbnPQ/Pjwb5yq/5YTpNQ==",
   "success": true,
-  "projectFilePath": "F:\\FPT Document\\PRN211\\1_PRN211\\SportWearManage\\SportWearManage\\SportWearManage.csproj",
+  "projectFilePath": "F:\\My Project\\SportWearProjectPRN211\\SportWearProjectPRN211\\SportWearManage.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

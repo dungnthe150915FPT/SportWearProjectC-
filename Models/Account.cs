@@ -19,7 +19,6 @@ namespace SportWearManage.Models
         public string? Email { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? Address { get; set; }
-        public int? IsSeller { get; set; }
         public int? IsAdmin { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\FPT Document\\PRN211\\1_PRN211\\SportWearManage\\SportWearManage\\SportWearManage.csproj": {}
+    "F:\\My Project\\SportWearProjectPRN211\\SportWearProjectPRN211\\SportWearManage.csproj": {}
   },
   "projects": {
-    "F:\\FPT Document\\PRN211\\1_PRN211\\SportWearManage\\SportWearManage\\SportWearManage.csproj": {
+    "F:\\My Project\\SportWearProjectPRN211\\SportWearProjectPRN211\\SportWearManage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\FPT Document\\PRN211\\1_PRN211\\SportWearManage\\SportWearManage\\SportWearManage.csproj",
+        "projectUniqueName": "F:\\My Project\\SportWearProjectPRN211\\SportWearProjectPRN211\\SportWearManage.csproj",
         "projectName": "SportWearManage",
-        "projectPath": "F:\\FPT Document\\PRN211\\1_PRN211\\SportWearManage\\SportWearManage\\SportWearManage.csproj",
+        "projectPath": "F:\\My Project\\SportWearProjectPRN211\\SportWearProjectPRN211\\SportWearManage.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "F:\\FPT Document\\PRN211\\1_PRN211\\SportWearManage\\SportWearManage\\obj\\",
+        "outputPath": "F:\\My Project\\SportWearProjectPRN211\\SportWearProjectPRN211\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
