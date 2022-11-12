@@ -1,6 +1,6 @@
 ﻿var builder = WebApplication.CreateBuilder(args);
 //Add thêm
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(); 
 
 var app = builder.Build();
 
@@ -8,5 +8,5 @@ var app = builder.Build();
 //app.MapGet("/", () => "Hello World!");
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Product}/{action=List}/{id?}");
+    pattern: "{controller=Login}/{action=Login}/{id?}");
 app.Run();

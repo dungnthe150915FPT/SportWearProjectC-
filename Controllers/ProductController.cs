@@ -9,6 +9,8 @@ namespace SportWearManage.Controllers
         SportWearContext context = new SportWearContext();
         public IActionResult List(int id)
         {
+/*            Account acc = TempData["acc"] as Account;
+            ViewBag.Acc = acc;*/
             List<Account> accounts = context.Accounts.ToList();
             List<Category> categories = context.Categories.ToList();
             List<Product> products = new List<Product>();
@@ -79,6 +81,7 @@ namespace SportWearManage.Controllers
                 }
             }
         }
+        //Delete product
         public IActionResult Delete(int id)
         {
             using (SportWearContext context = new SportWearContext())

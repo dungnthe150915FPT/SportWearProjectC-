@@ -128,3 +128,8 @@ F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\obj\Debug\net6.0\ref
 F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\obj\Debug\net6.0\SportWearManage.pdb
 F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\obj\Debug\net6.0\SportWearManage.genruntimeconfig.cache
 F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\obj\Debug\net6.0\ref\SportWearManage.dll
+F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+F:\My Project\SportWearProjectPRN211\SportWearProjectPRN211\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
