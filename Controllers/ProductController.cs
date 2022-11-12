@@ -24,5 +24,70 @@ namespace SportWearManage.Controllers
             ViewData["id"] = id;
             return View(products);
         }
+        public IActionResult Add()
+        {
+            using (SportWearContext context = new SportWearContext())
+            {
+                var data1 = context.Categories.ToList();
+                var data2 = context.Accounts.ToList();
+                ViewBag.Categories = data1;
+                ViewBag.Accounts = data2;
+                return View();
+            }
+        }
+        [HttpPost]
+        public IActionResult Add(Product product)
+        {
+            using (SportWearContext context = new SportWearContext())
+            {
+                if (ModelState.IsValid)
+                {
+                    context.Products.Add(product);
+                    context.SaveChanges();
+                    return RedirectToAction("List");
+                }
+                return View();
+            }
+        }
+        public IActionResult Update(int id)
+        {
+            using (SportWearContext context = new SportWearContext())
+            {
+                var data1 = context.Categories.ToList();
+                ViewBag.Categories = data1;
+                var product = context.Products.Find(id);
+                return View(product);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Update(Product product)
+        {
+            using (SportWearContext context = new SportWearContext())
+            {
+                if (ModelState.IsValid)
+                {
+                    context.Products.Update(product);
+                    context.SaveChanges();
+                    return RedirectToAction("List");
+                }
+                else
+                {
+                    var data1 = context.Categories.ToList();
+                    ViewBag.Categories = data1;
+                    return View(product);
+                }
+            }
+        }
+        public IActionResult Delete(int id)
+        {
+            using (SportWearContext context = new SportWearContext())
+            {
+                var product = context.Products.Find(id);
+                context.Products.Remove(product);
+                context.SaveChanges();
+                return RedirectToAction("List");
+            }
+        }
     }
 }

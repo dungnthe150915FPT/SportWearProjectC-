@@ -8,7 +8,7 @@ namespace SportWearManage.Controllers
         SportWearContext context = new SportWearContext();
         public IActionResult Login()
         {
-            //List<>
+
             return View();
         }
     }

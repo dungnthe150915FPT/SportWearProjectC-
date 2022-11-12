@@ -1,2 +1,7 @@
 ﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 @using SportWearManage.Models
+<form asp-controller="Login" asp-action="Login" method="post">
+    Username <input type="text" required name="Username" placeholder="Username"/><br>
+    Password <input type="text" required name="Password" placeholder="Password"/><br>
+    <input type="submit" value="Login"/>
+</form>

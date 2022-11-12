@@ -72,16 +72,15 @@
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Added Date</th>
-                        <th>Description</th>
                         <th>Image</th>
+                        <th>Description</th>
                         <th>Source Of Supply</th>
                         <th>Category</th>
                         <th>Added By</th>
                         <th>
-                            @*@if ( == 1)
-                        {
-                        <th><button>Add more products</button></th>
-                        }*@
+                            <form asp-controller="Product" asp-action="Add" method="get">
+                                <input type="submit" value="Add new product" />
+                            </form>
                         </th>
                     </tr>
                 </thead>
@@ -100,7 +99,12 @@
                             <td>@m.SourceOfSupply</td>
                             <td>@m.Category.CategoryName</td>
                             <td>@m.Account.Username</td>
-                            <td><a href="#">Edit</a></td>
+                            @*if(@m.Account.IsAdmin == 1){*@
+                                <td><a asp-controller="Product" asp-action="Update" asp-route-id=@m.ProductId>Update</a></td>
+                                <td><a asp-controller="Product" asp-action="Delete" asp-route-id=@m.ProductId>Delete</a></td>
+                           @* }else{*@
+ @*                               <td><a href="#">Buy</a></td>*@
+                            @*}*@
                         </tr>
                     }
                 </tbody>
