@@ -1,0 +1,11 @@
+﻿@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using SportWearManage.Models
+@model Product
+
+Product Name: @Model.ProductName
+<br />Quantity: @Model.Quantity
+<br />Price:@Model.Price
+<br />Added Date:@Model.AddedDate
+<br />Image: <img style="height: 100px; width: 100px;" src="@Model.Image" />
+<br />Description:@Model.Description
+<br />Source Of Supply:@Model.SourceOfSupply

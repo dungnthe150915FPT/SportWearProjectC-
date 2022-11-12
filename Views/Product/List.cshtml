@@ -88,7 +88,7 @@
                     @foreach (var m in Model)
                     {
                         <tr>
-                            <td><a href="">@m.ProductName</a></td>
+                            <td><a asp-controller="Product" asp-action="Detail" asp-route-id=@m.ProductId>@m.ProductName</a></td>
                             <td>@m.Quantity</td>
                             <td>@m.Price</td>
                             <td>@m.AddedDate.ToString("dd/MM/yyyy")</td>
@@ -116,3 +116,12 @@
         }
     </div>
 </div>
+@*<script>
+    function confirmDelete(id) {
+        var result = confirm("Confirm to delete ?");
+        if (result === true) {
+            alert("Delete product success!");
+            window.location.href = 'asp-route-id='+id;
+        }
+    }
+</script>*@
