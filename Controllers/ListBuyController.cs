@@ -25,5 +25,13 @@ namespace SportWearManage.Controllers
             ViewData["id"] = id;
             return View(products);
         }
+        public IActionResult Detail(int id)
+        {
+            using (SportWearContext context = new SportWearContext())
+            {
+                var product = context.Products.FirstOrDefault(p => p.ProductId == id);
+                return View(product);
+            }
+        }
     }
 }
