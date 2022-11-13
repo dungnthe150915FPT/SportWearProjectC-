@@ -7,11 +7,16 @@
 
 <form asp-controller="Product" asp-action="Add" method="post">
     Product Name:<input type="text" asp-for=ProductName />
-    <br />Quantity: <input required type="text" asp-for=Quantity />
-    <br />Price:<input required type="text" asp-for=Price />
+    <br />Quantity: <input required type="number" asp-for=Quantity />
+    <br />Price:<input required type="number" asp-for=Price />
     <br />Added Date:<input required type="date" asp-for=AddedDate />
     <br />Description:<input required type="text" asp-for=Description />
     <br />Image:<input required type="text" asp-for=Image />
+    @*<label for="input-img" class="preview">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <span>Upload to preview image</span>
+    </label>
+    <input type="file" hidden id="input-img" asp-for=Image />*@
     <br />Source Of Supply:<input required type="text" asp-for=SourceOfSupply />
     <br />Category:
     <select asp-for=CategoryId>
@@ -22,12 +27,12 @@
     </select>
     <input required type="hidden" asp-for="AccountId" value="@ViewBag.AccountId" />
     <input type="submit" value="ADD" />
-    <br /><a onclick="addSuccess()" style="text-decoration: none" href="../List">
+    <br /><a  style="text-decoration: none" href="List">
         <input type="button" value="Return to List of products" />
     </a>
 </form>
-<script>
+@*<script>
     function addSuccess() {
         alert("Add product success")
     }
-</script>
+</script>*@

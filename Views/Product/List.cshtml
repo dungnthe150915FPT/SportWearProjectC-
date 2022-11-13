@@ -127,13 +127,13 @@
     </div>
     <div style="margin-top: 2.2%; margin-left: 2%">
         <div>
-            <button style=" background-color: green; "><a onclick="logOut()" style="text-decoration: none; color: white" href="#">Log out</a></button>
+            Hello @ViewBag.Username <button style=" background-color: green; "><a onclick="logOut()" style="text-decoration: none; color: white" href="#">Log out</a></button>
         </div><br>
         <div style="display: flex">
             <form asp-controller="Product" asp-action="List" method="get">
                 Tìm kiếm sản phẩm <input type="text" name="search"/><button>Search</button>
                 @*Information of Shop*@
-                <button><a href="#" style="text-decoration: none">Shop's information</a></button>
+                <button><a href="#" onclick="show()" style="text-decoration: none">Shop's information</a></button>
             </form>
         </div>
         @if (Model.Count > 0)
@@ -210,4 +210,8 @@
  //          Truy cập ngay shop quần áo thể thao Vip Sport Wear\n
  //           Thông tin liên hệ Zalo số: 0123456789 để được tư vấn đặt hàng")
  //   }
+
+    function show() {
+        alert("Shop quần áo với nhiều loại thời trang thể thao giá rẻ. Shop có địa chỉ tại đại học FPT Hà Nội. Truy cập ngay shop quần áo thể thao Vip Sport Wear. Thông tin liên hệ Zalo số: 0123456789 để được tư vấn đặt hàng và tiến hành đặt hàng qua Admin")
+    }
 </script>

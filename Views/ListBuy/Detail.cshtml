@@ -6,11 +6,11 @@
 <br />Quantity: @Model.Quantity
 <br />Price:@Model.Price
 <br />Added Date:@Model.AddedDate
-<br />Image:
-<img style="height: 100px; width: 100px;" src="@Model.Image" />
+<br />Image: <img style="height: 100px; width: 100px;" src="@Model.Image" />
 <br />Description:@Model.Description
 <br />Source Of Supply:@Model.SourceOfSupply
 *@
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +40,7 @@
     }
 
     .card {
-        margin: 20px auto;
+        margin: -100px auto;
         width: 320px;
         height: 580px;
         background-color: #272d40;
@@ -191,7 +191,7 @@
              src="https://bucket.nhanh.vn/store/20446/logo_1643340534_THETHAOVIP2-03.png" />
     </a>
     <div>
-        <button style=" background-color: green; "><a onclick="logOut()" style="text-decoration: none; color: white" href="#">Log out</a></button>
+        Hello @ViewBag.Username  <button style=" background-color: green; "><a onclick="logOut()" style="text-decoration: none; color: white" href="#">Log out</a></button>
     </div>
     <div class="card">
         <span class="like"><i class='bx bx-heart'></i></span>
@@ -220,8 +220,20 @@
             <span class="black"></span>
         </div>
         <div class="card__action">
-            <button><a style="text-decoration: none">Buy</a></button>
+            <button><a onclick="Buy()" style="text-decoration: none">Buy</a></button>
             <button><a style="padding-top: 2%; text-decoration: none" href="../../ListBuy/ListBuy">Return to list of products</a></button>
         </div>
     </div>
 </body>
+<script>
+    function logOut() {
+        var result = confirm("Do you want to log out ?")
+        if (result === true) {
+            window.location.href = '../../Login/Login'
+        }
+    }
+    function Buy() {
+        alert("Shop quần áo với nhiều loại thời trang thể thao giá rẻ. Shop có địa chỉ tại đại học FPT Hà Nội. Truy cập ngay shop quần áo thể thao Vip Sport Wear. Thông tin liên hệ Zalo số: 0123456789 để được tư vấn đặt hàng và tiến hành đặt hàng qua Admin")
+    }
+</script>
+</html>

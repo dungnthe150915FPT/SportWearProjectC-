@@ -40,6 +40,7 @@ namespace SportWearManage.Controllers
                 .Contains(search.ToLower()))
                 .ToList();
             }
+            ViewBag.Username = acc.Username;
             ViewData["Accounts"] = accounts;
             ViewData["Categories"] = categories;
             ViewData["id"] = id;
@@ -124,7 +125,12 @@ namespace SportWearManage.Controllers
         {
             using (SportWearContext context = new SportWearContext())
             {
+                //get data từ session
+                var accJson = HttpContext.Session.GetString("user");
+                //parse data sang kiểu ban đầu (Account)
+                var acc = JsonConvert.DeserializeObject<Account>(accJson);
                 var product = context.Products.FirstOrDefault(p => p.ProductId == id);
+                ViewBag.Username = acc.Username;
                 return View(product);
             }
         }
