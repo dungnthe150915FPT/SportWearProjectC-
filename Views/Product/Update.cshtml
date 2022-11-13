@@ -2,7 +2,8 @@
 @using SportWearManage.Models
 @model Product
 <form asp-controller="Product" asp-action="Update" method="post">
-    Product Name:<input type="text" asp-for=ProductName />
+    <input required type="hidden" asp-for="ProductId" />
+    Product Name: <input type="text" asp-for=ProductName />
     <br />Quantity: <input required type="text" asp-for=Quantity />
     <br />Price:<input required type="text" asp-for=Price />
     <br />Added Date:<input required type="date" asp-for=AddedDate />
@@ -23,6 +24,8 @@
             }
         }
     </select>
-    <input type="submit" value="UPDATE" />
-    <button><a style="text-decoration: none" href="../List">Return to List of products</a></button>
+    <br /><input type="submit" value="UPDATE" />
+    <br /><a style="text-decoration: none" href="../List">
+        <input type="button" value="Return to List of products" />
+    </a>
 </form>

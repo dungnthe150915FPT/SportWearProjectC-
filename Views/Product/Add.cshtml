@@ -20,17 +20,14 @@
             <option value=@c.CategoryId>@c.CategoryName</option>
         }
     </select>
-    <select asp-for=AccountId>
-        @foreach (Account a in @ViewBag.Accounts)
-        {
-            <option value=@a.AccountId>@a.Username</option>
-        }
-    </select>
+    <input required type="hidden" asp-for="AccountId" value="@ViewBag.AccountId" />
     <input type="submit" value="ADD" />
-    <button><a style="text-decoration: none" href="../Product/List">Return to List of products</a></button>
+    <br /><a onclick="addSuccess()" style="text-decoration: none" href="../List">
+        <input type="button" value="Return to List of products" />
+    </a>
 </form>
-@*<script>
-    function success() {
-        alert("Add success")
+<script>
+    function addSuccess() {
+        alert("Add product success")
     }
-</script>*@
+</script>

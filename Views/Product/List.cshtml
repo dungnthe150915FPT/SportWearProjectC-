@@ -45,6 +45,70 @@
         font-weight: 1000;
         font-size: 20px;
     }
+
+
+    .hide {
+        display: none;
+    }
+
+    .modal__inner {
+        width: 450px;
+        background-color: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+        animation: showModal linear 0.2s;
+        position: relative;
+        margin: 200px auto;
+    }
+
+    .modal__header {
+        background-color: var(--pink-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        font-size: 17px;
+    }
+
+    .modal__body {
+        padding: 15px;
+    }
+
+        .modal__body h2 {
+            color: var(--pink-color);
+            margin-bottom: 10px;
+        }
+
+    .modal__footer {
+        padding: 15px;
+        text-align: right;
+    }
+
+        .modal__footer button {
+            outline: none;
+            border: none;
+            padding: 10px 20px;
+            background-color: var(--pink-color);
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+    i {
+        cursor: pointer;
+        font-size: 18px;
+    }
+    showModal {
+	from {
+		top: -200px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
 </style>
 
 <div class="main">
@@ -62,7 +126,16 @@
         }
     </div>
     <div style="margin-top: 2.2%; margin-left: 2%">
-        Tìm kiếm sản phẩm <input type="text" name="search"></input><button>Search</button><br>
+        <div>
+            <button style=" background-color: green; "><a onclick="logOut()" style="text-decoration: none; color: white" href="#">Log out</a></button>
+        </div><br>
+        <div style="display: flex">
+            <form asp-controller="Product" asp-action="List" method="get">
+                Tìm kiếm sản phẩm <input type="text" name="search"/><button>Search</button>
+                @*Information of Shop*@
+                <button><a href="#" style="text-decoration: none">Shop's information</a></button>
+            </form>
+        </div>
         @if (Model.Count > 0)
         {
             <table class="styled-table">
@@ -78,7 +151,7 @@
                         <th>Category</th>
                         <th>
                             <form asp-controller="Product" asp-action="Add" method="get">
-                                <input type="submit" value="Add new product" />
+                                <input style="background-color: yellow" type="submit" value="Add new product" />
                             </form>
                         </th>
                     </tr>
@@ -97,12 +170,8 @@
                             <td>@m.Description</td>
                             <td>@m.SourceOfSupply</td>
                             <td>@m.Category.CategoryName</td>
-                            @*if(@m.Account.IsAdmin == 1){*@
-                                <td><a asp-controller="Product" asp-action="Update" asp-route-id=@m.ProductId>Update</a></td>
-                                <td><a asp-controller="Product" asp-action="Delete" asp-route-id=@m.ProductId>Delete</a></td>
-                           @* }else{*@
- @*                               <td><a href="#">Buy</a></td>*@
-                            @*}*@
+                            <td><button style="background-color: green;"><a style="text-decoration: none; color: white;" asp-controller="Product" asp-action="Update" asp-route-id=@m.ProductId>Update</a></button></td>
+                            <td><button style="background-color: red;"><a onclick="deleteSuccess()" style="text-decoration: none; color: white;" asp-controller="Product" asp-action="Delete" asp-route-id=@m.ProductId>Delete</a></button></td>
                         </tr>
                     }
                 </tbody>
@@ -123,3 +192,22 @@
         }
     }
 </script>*@
+<script>
+    function logOut(){
+        var result = confirm("Do you want to log out ?")
+        if(result === true){
+            window.location.href = '../../Login/Login'
+        }
+    }
+
+//    function deleteSuccess() {
+ //       alert("Delete product success")
+ //   }
+    
+  //  function showInformation() {
+ //       alert("Shop quần áo với nhiều loại thời trang thể thao giá rẻ\n
+  //          Shop có địa chỉ tại đại học FPT Hà Nội\n
+ //          Truy cập ngay shop quần áo thể thao Vip Sport Wear\n
+ //           Thông tin liên hệ Zalo số: 0123456789 để được tư vấn đặt hàng")
+ //   }
+</script>

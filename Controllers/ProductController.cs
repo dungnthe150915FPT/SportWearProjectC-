@@ -1,25 +1,44 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SportWearManage.Models;
+using SportWearManage.ViewModels;
 
 namespace SportWearManage.Controllers
 {
     public class ProductController : Controller
     {
         SportWearContext context = new SportWearContext();
-        public IActionResult List(int id)
+        public IActionResult List(int id, string search = null)
         {
-/*            Account acc = TempData["acc"] as Account;
-            ViewBag.Acc = acc;*/
+            //get data từ session
+            var accJson = HttpContext.Session.GetString("user");
+            //parse data sang kiểu ban đầu (Account)
+            var acc = JsonConvert.DeserializeObject<Account>(accJson);
+
+            /*            Account acc = TempData["acc"] as Account;
+                        ViewBag.Acc = acc;*/
             List<Account> accounts = context.Accounts.ToList();
             List<Category> categories = context.Categories.ToList();
             List<Product> products = new List<Product>();
-            if (id != 0) { 
-                products = context.Products.Include(x => x.Category).Where(x => x.CategoryId == id).ToList();
+
+            //khi người dùng k search thì search sẽ mặc định là chuỗi rỗng
+            //hoặc người dùng chỉ nhập toàn khoảng trắng
+            if (search == null || "".Equals(search.Trim()))
+                search = "";
+
+            if (id != 0)
+            {
+                products = context.Products.Include(x => x.Category)
+                    .Where(x => x.CategoryId == id && x.ProductName.ToLower()
+                    .Contains(search.ToLower()))
+                    .ToList();
             }
             else
             {
-                products = context.Products.ToList();
+                products = context.Products.Where(x => x.ProductName.ToLower()
+                .Contains(search.ToLower()))
+                .ToList();
             }
             ViewData["Accounts"] = accounts;
             ViewData["Categories"] = categories;
@@ -30,21 +49,28 @@ namespace SportWearManage.Controllers
         {
             using (SportWearContext context = new SportWearContext())
             {
+                //get data từ session
+                var accJson = HttpContext.Session.GetString("user");
+                //parse data sang kiểu ban đầu (Account)
+                var acc = JsonConvert.DeserializeObject<Account>(accJson);
+
                 var data1 = context.Categories.ToList();
                 var data2 = context.Accounts.ToList();
                 ViewBag.Categories = data1;
                 ViewBag.Accounts = data2;
+                ViewBag.AccountId = acc.AccountId;
                 return View();
             }
         }
         [HttpPost]
-        public IActionResult Add(Product product)
+        public IActionResult Add(ProductViewModel product)
         {
             using (SportWearContext context = new SportWearContext())
             {
                 if (ModelState.IsValid)
                 {
-                    context.Products.Add(product);
+                    var addProduct = ProductViewModel.ToProduct(product);
+                    context.Products.Add(addProduct);
                     context.SaveChanges();
                     return RedirectToAction("List");
                 }
@@ -63,13 +89,15 @@ namespace SportWearManage.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Product product)
+        public IActionResult Update(ProductViewModel product)
         {
             using (SportWearContext context = new SportWearContext())
             {
                 if (ModelState.IsValid)
                 {
-                    context.Products.Update(product);
+                    //convert từ model view sang model của database
+                    var updateProduct = ProductViewModel.ToProduct(product);
+                    context.Products.Update(updateProduct);
                     context.SaveChanges();
                     return RedirectToAction("List");
                 }
