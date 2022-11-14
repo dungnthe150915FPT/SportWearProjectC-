@@ -8,7 +8,7 @@
 </style>
 <form asp-controller="Product" asp-action="Update" method="post">
     <input required type="hidden" asp-for="ProductId" />
-    Product Name: <input type="text" asp-for=ProductName />
+    Product Name: <input type="text" required asp-for=ProductName />
     <br />Quantity: <input required type="text" asp-for=Quantity />
     <br />Price:<input required type="text" asp-for=Price />
     <br />Added Date:<input required type="date" asp-for=AddedDate />
@@ -56,3 +56,25 @@
         document.querySelector('.preview').appendChild(img)
     })
 </script>*@
+
+
+@*<form asp-controller="Product" asp-action="Update" method="post">
+    <input required type="hidden" asp-for="ProductId" />
+        <div class="form-control">
+        <input type="text" required asp-for=ProductName />
+        </div>
+    <div class="form-control">
+        <br />Quantity: <input required type="text" asp-for=Quantity />
+    </div>
+    <div class="form-control">
+        <input required type="text" asp-for=Price />
+        </div>
+    <div class="form-control">
+    </div>
+    <div class="form-control">
+    </div>
+    <div class="form-control">
+    </div>
+    <div class="form-control">
+      </div>
+    </form>*@
