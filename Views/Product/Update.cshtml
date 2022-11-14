@@ -9,8 +9,8 @@
 <form asp-controller="Product" asp-action="Update" method="post">
     <input required type="hidden" asp-for="ProductId" />
     Product Name: <input type="text" asp-for=ProductName />
-    <br />Quantity: <input required type="number" asp-for=Quantity />
-    <br />Price:<input required type="number" asp-for=Price />
+    <br />Quantity: <input required type="text" asp-for=Quantity />
+    <br />Price:<input required type="text" asp-for=Price />
     <br />Added Date:<input required type="date" asp-for=AddedDate />
     <br />Description:<input required type="text" asp-for=Description />
         <br />Image:<input required type="text" asp-for=Image />

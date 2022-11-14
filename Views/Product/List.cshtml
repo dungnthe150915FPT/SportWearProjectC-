@@ -149,6 +149,7 @@
                         <th>Description</th>
                         <th>Source Of Supply</th>
                         <th>Category</th>
+                        @*<th>Added By</th>*@
                         <th>
                             <form asp-controller="Product" asp-action="Add" method="get">
                                 <input style="background-color: yellow" type="submit" value="Add new product" />
@@ -170,6 +171,7 @@
                             <td>@m.Description</td>
                             <td>@m.SourceOfSupply</td>
                             <td>@m.Category.CategoryName</td>
+                            @*<td>@m.Account.Username</td>*@
                             <td><button style="background-color: green;"><a style="text-decoration: none; color: white;" asp-controller="Product" asp-action="Update" asp-route-id=@m.ProductId>Update</a></button></td>
                             <td><button style="background-color: red;"><a onclick="deleteSuccess()" style="text-decoration: none; color: white;" asp-controller="Product" asp-action="Delete" asp-route-id=@m.ProductId>Delete</a></button></td>
                         </tr>
